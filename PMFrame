@@ -1,0 +1,32 @@
+/**
+ *
+ * @authors Brendan Blanchard & Kenneth Taylor
+ * 
+ */
+import java.awt.*;
+import javax.swing.*;
+
+public class PMFrame extends JFrame
+{
+    public static PMFrame inst; //always static
+   
+    PMFrame() {
+        super("Paint Program"); //titles the painting window
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes gracefully
+        Container c = getContentPane(); //keeps everything inside the workable pane
+        setBackground(Color.white); //sets the color of the frame to a certain color
+        //adds to the content pane
+        c.add(PButtonPanel.getInstance(), BorderLayout.NORTH);
+        getContentPane().add(PMousePanel.getInstance(), BorderLayout.CENTER);
+        setSize(1500, 1000);
+        setVisible(true); //make sure this is last to see the frame
+    }
+
+    public static PMFrame getInstance() //checks to see if a frame is already in use and creates one if necessary
+    {
+        if (inst == null) {
+            inst = new PMFrame(); //creates a frame if there is not one made
+        }
+        return inst; //returns the one already created and in use
+    }
+}
