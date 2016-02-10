@@ -1,0 +1,75 @@
+/**
+ *
+ * @authors Brendan Blanchard & Kenneth Taylor
+ * 
+ */
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.image.*;
+
+public class PMousePanel extends JPanel //implements MouseListener
+{
+    public static PMousePanel inst;
+    Point pointStart = null; //begin of mouse click and drag
+    Point pointEnd = null; //end of mouse click and drag
+    int type = -1;
+    ///*
+    BufferedImage grid;
+    Graphics2D gc;
+    //*/
+    
+    PMousePanel() //adds the main drawing panel
+    {
+        setBackground(Color.WHITE); //sets a color to the drawing panel
+        //addMouseListener(this);
+    }
+    
+    public static PMousePanel getInstance()
+    {
+        if(inst == null)
+            inst =  new PMousePanel();
+        return inst;
+    }
+    
+    /*public static createImage()
+    {
+        ;
+    }*/
+    public void paintComponent(Graphics g) //Graphics paint brush
+    {
+        /*
+        public void paintComponent(Graphics g)
+    { 
+         super.paintComponent(g);  
+         Graphics2D g2 = (Graphics2D)g;
+         if(grid == null){
+            int w = this.getWidth();
+            int h = this.getHeight();
+            grid = (BufferedImage)(this.createImage(w,h));
+            gc = grid.createGraphics();
+           
+         }
+         g2.drawImage(grid, null, 0, 0);
+    }
+        */
+        super.paintComponent(g); //needed to keep buttons in the right place
+        
+        System.out.println("called");
+        Graphics2D g2 = (Graphics2D)g; //Draws better
+        ///*
+        if(grid == null)
+        {
+            int w = this.getWidth();
+            int h = this.getHeight();
+            grid = (BufferedImage)(this.createImage(w,h));
+            gc = grid.createGraphics();
+           
+        }
+        //*/
+        g2.setColor(Color.BLACK);
+        /*
+        if(objectFlag == 1)
+        gc.fillOval(startX, startY, endX, endY);
+        */
