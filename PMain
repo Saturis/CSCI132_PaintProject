@@ -1,0 +1,12 @@
+/**
+ *
+ * @authors Brendan Blanchard & Kenneth Taylor
+ * 
+ */
+//This class gets the whole sh#tshow going
+public class PMain
+{
+     public static void main(String[] args) {
+        PMFrame.getInstance(); //Singleton design
+    }
+}
